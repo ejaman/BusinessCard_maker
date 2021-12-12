@@ -1,0 +1,24 @@
+@value mainColor from '../../common/colors.css';
+
+.header {
+  width: 100%;
+  text-align: center;
+  padding: 0.5em;
+  background-color: mainColor;
+  position: relative;
+}
+.logo {
+  padding-top: 1rem;
+  width: 3em;
+}
+.title {
+  font-size: 1.8rem;
+  color: white;
+}
+.logout {
+  position: absolute;
+  right: 3em;
+  top: 1em;
+  width: 5em;
+  cursor: pointer;
+}
