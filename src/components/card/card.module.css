@@ -1,0 +1,71 @@
+@value mainColor, makerWhite from '../../common/colors.css';
+
+.card {
+  display: flex;
+  margin: 0.5rem;
+  background: #f8f8f8;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 5px 3px 17px 4px rgba(0, 0, 0, 0.61);
+  list-style: none;
+  width: 90%;
+}
+.card:hover {
+  transform: scale(1.01);
+  transition: 0.5s;
+}
+.card.dark {
+  background: mainColor;
+  color: makerWhite;
+}
+.card.light {
+  background: makerWhite;
+  color: black;
+}
+.card.color {
+  background: #14213d;
+  color: #fca311;
+}
+.img {
+  /* border: red 3px solid; */
+  margin-left: 1rem;
+  width: 10em;
+  height: 10em;
+  border-radius: 50%;
+}
+
+.info {
+  width: 100%;
+  margin-left: 3rem;
+  text-align: left;
+  font-size: 0.9rem;
+}
+.name,
+.company,
+.title,
+.email,
+.msg {
+  margin: 0;
+  margin-bottom: 0.2em;
+}
+
+.company {
+  margin-bottom: 1.5em;
+}
+
+.company::after {
+  content: " ";
+  display: block;
+  width: 90%;
+  height: 2px;
+  transform: translateY(0.75em);
+}
+.company.dark::after {
+  background: makerWhite;
+}
+.company.light::after {
+  background: black;
+}
+.company.color::after {
+  background: #fca311;
+}

@@ -1,8 +1,15 @@
 .preview {
   flex-basis: 50%;
-  background: orangered;
 }
 
 .title {
   color: mainColor;
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
