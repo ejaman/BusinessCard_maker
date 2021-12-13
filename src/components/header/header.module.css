@@ -17,8 +17,18 @@
 }
 .logout {
   position: absolute;
-  right: 3em;
+  right: 2.5em;
   top: 1em;
   width: 5em;
+  color: mainColor;
+  background: white;
+  border: mainColor solid 2px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.1em;
   cursor: pointer;
+}
+.logout:hover {
+  background: mainColor;
+  color: white;
 }

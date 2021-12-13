@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./header.module.css";
 
-const Header = ({ onLogout }) => (
+const Header = (props) => (
   <header className={styles.header}>
-    {onLogout && (
-      <button className={styles.logout} onClick={onLogout}>
+    {props.onLogout && (
+      <button className={styles.logout} onClick={props.onLogout}>
         Logout
       </button>
     )}

@@ -1,0 +1,10 @@
+@value mainColor from '../../common/colors.css';
+
+.cardmaker {
+  flex-basis: 50%;
+  background: orange;
+}
+
+.title {
+  color: mainColor;
+}
