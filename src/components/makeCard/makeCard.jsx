@@ -43,17 +43,6 @@ const MakeCard = ({ authService }) => {
     },
   ]);
 
-  // handleIncrement = (habit) => {
-  //   // habit.count++; state를 직접 변경하는 것은 좋지 않음
-  //   const habits = this.state.habits.map((item) => {
-  //     if (item.id === habit.id) {
-  //       return { ...habit, count: habit.count + 0.5 };
-  //     }
-  //     return item;
-  //   });
-  //   this.setState({ habits: habits }); //{habits} 이렇게 써도 ㄱㅊ, key: value-local variable -> state.habits
-  // };
-
   const navigate = useNavigate();
   const onLogout = () => {
     authService.logout();

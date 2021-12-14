@@ -7,4 +7,12 @@
 
 .title {
   color: mainColor;
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.forms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

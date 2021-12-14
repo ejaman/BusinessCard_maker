@@ -1,9 +1,9 @@
-@value mainColor, makerWhite from '../../common/colors.css';
+@value mainColor,makerBrown, makerGreen, makerLightGrey, makerLightGreen, makerWhite from '../../common/colors.css';
 
 .card {
   display: flex;
   margin: 0.5rem;
-  background: #f8f8f8;
+  background: makerLightGrey;
   border-radius: 10px;
   padding: 1.5rem;
   box-shadow: 5px 3px 17px 4px rgba(0, 0, 0, 0.61);
@@ -16,16 +16,17 @@
 }
 .card.dark {
   background: mainColor;
+  color: makerLightGrey;
+}
+.card.color {
+  background: makerGreen;
   color: makerWhite;
 }
 .card.light {
-  background: makerWhite;
-  color: black;
+  background: makerLightGreen;
+  color: makerBrown;
 }
-.card.color {
-  background: #14213d;
-  color: #fca311;
-}
+
 .img {
   /* border: red 3px solid; */
   margin-left: 1rem;
@@ -61,11 +62,11 @@
   transform: translateY(0.75em);
 }
 .company.dark::after {
-  background: makerWhite;
+  background: makerLightGrey;
 }
 .company.light::after {
-  background: black;
+  background: makerBrown;
 }
 .company.color::after {
-  background: #fca311;
+  background-color: makerWhite;
 }

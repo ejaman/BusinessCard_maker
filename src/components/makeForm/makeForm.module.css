@@ -1,0 +1,50 @@
+@value mainColor,makerBrown, makerGreen, makerLightGrey, makerLightGreen, makerWhite from '../../common/colors.css';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+  border-radius: 10px;
+  width: 95%;
+}
+.form:hover {
+  transform: scale(1.01);
+  transition: 0.5s;
+}
+
+.name,
+.company,
+.theme,
+.title,
+.email,
+.fileBtn,
+.deleteBtn,
+.msg {
+  padding: 0.5em;
+  font-size: 0.9em;
+}
+
+.name,
+.company,
+.theme {
+  width: 33.33%;
+}
+.title,
+.email,
+.fileBtn,
+.deleteBtn {
+  width: 50%;
+}
+.msg {
+  width: 100%;
+}
+.fileBtn {
+  background: mainColor;
+  color: makerLightGrey;
+  border: none;
+}
+.deleteBtn {
+  background: makerGreen;
+  color: makerWhite;
+  border: none;
+}

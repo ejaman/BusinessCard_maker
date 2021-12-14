@@ -33,6 +33,6 @@
 }
 
 .btn:hover {
-  background: #060032;
+  background: mainColor;
   color: white;
 }
