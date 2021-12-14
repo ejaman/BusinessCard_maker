@@ -3,6 +3,7 @@
 .cardmaker {
   flex-basis: 50%;
   text-align: center;
+  padding: 0.5em 2em;
 }
 
 .title {

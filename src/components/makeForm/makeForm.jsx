@@ -1,56 +1,52 @@
 import React from "react";
+import Btn from "../btn/btn";
+import ImgFile from "../imgFile/imgFile";
 import styles from "./makeForm.module.css";
 
 const Makeform = ({ card }) => {
   const { name, company, theme, email, title, message, file, fileURL } = card;
-
+  const onSubmit = () => {
+    console.log("submit");
+  };
   return (
     <form className={styles.form}>
-      <section className={styles.row1}>
-        <input
-          className={styles.name}
-          type="text"
-          name="name"
-          value={name}
-        ></input>
-        <input
-          className={styles.company}
-          type="text"
-          name="company"
-          value={company}
-        ></input>
-        <input
-          className={styles.theme}
-          type="text"
-          name="theme"
-          value={theme}
-        ></input>
-      </section>
-      <section className={styles.row2}>
-        <input
-          className={styles.title}
-          type="text"
-          name="title"
-          value={title}
-        ></input>
-        <input
-          className={styles.email}
-          type="text"
-          name="email"
-          value={email}
-        ></input>
-      </section>
-      <section className={styles.row3}>
-        <input
-          className={styles.msg}
-          type="text"
-          name="message"
-          value={message}
-        ></input>
-      </section>
+      <input
+        className={styles.input}
+        type="text"
+        name="name"
+        value={name}
+      ></input>
+      <input
+        className={styles.input}
+        type="text"
+        name="company"
+        value={company}
+      ></input>
+      <select className={styles.theme} name="theme" value={theme}>
+        <option value="Dark">Dark</option>
+        <option value="Light">Light</option>
+        <option value="Color">Color</option>
+      </select>
+      <input
+        className={styles.input}
+        type="text"
+        name="title"
+        value={title}
+      ></input>
+      <input
+        className={styles.input}
+        type="text"
+        name="email"
+        value={email}
+      ></input>
+      <textarea
+        className={styles.msg}
+        name="message"
+        value={message}
+      ></textarea>
       <section className={styles.btns}>
-        <button className={styles.fileBtn}>{file}</button>
-        <button className={styles.deleteBtn}>delete</button>
+        <ImgFile />
+        <Btn name="Delete" onClick={onSubmit} />
       </section>
     </form>
   );

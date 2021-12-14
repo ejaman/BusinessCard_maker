@@ -1,50 +1,37 @@
-@value mainColor,makerBrown, makerGreen, makerLightGrey, makerLightGreen, makerWhite from '../../common/colors.css';
+@value makerWhite from '../../common/colors.css';
 
 .form {
   display: flex;
-  flex-direction: column;
+  width: 100%;
+  flex-wrap: wrap;
+  border-top: solid 1px black;
+  border-left: solid 1px black;
   margin: 0.5rem;
-  border-radius: 10px;
-  width: 95%;
 }
 .form:hover {
   transform: scale(1.01);
   transition: 0.5s;
 }
 
-.name,
-.company,
+.input,
 .theme,
-.title,
-.email,
-.fileBtn,
-.deleteBtn,
-.msg {
+.msg,
+.file {
+  background: makerWhite;
+  border: 0;
+  border-bottom: solid 1px black;
+  border-right: solid 1px black;
   padding: 0.5em;
   font-size: 0.9em;
 }
-
-.name,
-.company,
-.theme {
-  width: 33.33%;
-}
-.title,
-.email,
-.fileBtn,
-.deleteBtn {
-  width: 50%;
+.input,
+.select {
+  flex: 1 1 30%;
 }
 .msg {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  flex-basis: 100%;
+}
+.btns {
   width: 100%;
-}
-.fileBtn {
-  background: mainColor;
-  color: makerLightGrey;
-  border: none;
-}
-.deleteBtn {
-  background: makerGreen;
-  color: makerWhite;
-  border: none;
 }

@@ -1,0 +1,15 @@
+@value mainColor,makerBrown, makerGreen, makerLightGrey, makerLightGreen, makerWhite from '../../common/colors.css';
+
+.btn {
+  background: makerGreen;
+  color: makerWhite;
+  border: none;
+  font-weight: bold;
+  font-size: 0.9em;
+  cursor: pointer;
+  padding: 0.5em;
+  width: 50%;
+}
+.btn:hover {
+  opacity: 0.9;
+}
