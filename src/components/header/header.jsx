@@ -8,7 +8,9 @@ const Header = (props) => (
         Logout
       </button>
     )}
-    <img className={styles.logo} src="/images/logo.png" alt="logo" />
+    <a href="https://github.com/ejaman/BusinessCard_maker " alt="git">
+      <img className={styles.logo} src="/images/logo.png" alt="logo" />
+    </a>
     <h1 className={styles.title}>Business Card Maker</h1>
   </header>
 );
