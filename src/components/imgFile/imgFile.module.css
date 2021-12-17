@@ -1,4 +1,4 @@
-@value mainColor,makerBrown, makerGreen, makerLightGrey, makerLightGreen, makerWhite from '../../common/colors.css';
+@value mainColor,makerBrown, makerGreen, makerLightGrey, makerLightGreen from '../../common/colors.css';
 
 .container {
   display: inline;
@@ -7,8 +7,6 @@
   display: none;
 }
 .imgBtn {
-  background: mainColor;
-  color: makerLightGrey;
   border: none;
   font-weight: bold;
   font-size: 0.9em;
@@ -16,10 +14,42 @@
   padding: 0.5em;
   width: 50%;
 }
+
 .imgBtn:hover {
   opacity: 0.9;
 }
 .imgBtn.haveImg {
-  background: makerLightGreen;
-  color: makerBrown;
+  background: mainColor;
+  color: makerLightGrey;
+}
+.imgBtn.noImg {
+  background: makerLightGrey;
+  color: mainColor;
+}
+.loading {
+  display: inline-block;
+  width: 50%;
+  padding: 0.4em;
+  color: mainColor;
+  font-size: 1em;
+  font-weight: 900;
+  border-bottom: 1px solid black;
+}
+
+.load {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  border: 2px solid makerBrown;
+  border-top: 2px solid makerLightGrey;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

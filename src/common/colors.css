@@ -3,7 +3,6 @@
 @value makerPink: pink;
 @value makerShadow: rgba(217, 217, 217, 1);
 @value makerColorful: linear-gradient(166deg, rgba(237, 193, 211, 1) 0%,rgba(212, 149, 161, 1) 60%, rgba(162, 63, 63, 1) 100%, rgba(127, 188, 242, 1) 100%);
-@value makerWheat: wheat;
 
 @value makerWhite: #fafafa;
 @value mainColor: #344E41;
@@ -11,3 +10,4 @@
 @value makerLightGreen: #A3B18A;
 @value makerLightGrey: #DAD7CD;
 @value makerBrown: #524E3D;
+@value background: #eeece8;

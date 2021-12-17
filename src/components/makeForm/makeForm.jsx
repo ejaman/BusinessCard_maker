@@ -3,7 +3,7 @@ import Btn from "../btn/btn";
 import styles from "./makeForm.module.css";
 
 const Makeform = ({ FileInput, card, updateCard, deleteCard }) => {
-  const { name, company, theme, email, title, message, file, fileURL } = card;
+  const { name, company, theme, email, title, message, file } = card;
 
   const onFileChange = (file) => {
     updateCard({ ...card, file: file.name, fileURL: file.url });
