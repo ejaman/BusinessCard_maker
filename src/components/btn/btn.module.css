@@ -1,6 +1,7 @@
 @value mainColor,makerBrown, makerGreen, makerLightGrey, makerLightGreen, makerWhite from '../../common/colors.css';
 
 .btn {
+  display: inline-block;
   background: makerGreen;
   color: makerWhite;
   border: none;

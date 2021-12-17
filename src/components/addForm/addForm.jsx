@@ -1,9 +1,8 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Btn from "../btn/btn";
-import ImgFile from "../imgFile/imgFile";
 import styles from "./addForm.module.css";
 
-const AddForm = ({ onAdd }) => {
+const AddForm = ({ FileInput, onAdd }) => {
   const formRef = useRef();
   const nameRef = useRef();
   const companyRef = useRef();
@@ -11,6 +10,15 @@ const AddForm = ({ onAdd }) => {
   const titleRef = useRef();
   const emailRef = useRef();
   const messageRef = useRef();
+  const [file, setFile] = useState({ file: null, fileURL: null });
+
+  const onFileChange = (file) => {
+    console.log(file);
+    setFile({
+      file: file.name,
+      fileURL: file.url,
+    });
+  };
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -22,10 +30,11 @@ const AddForm = ({ onAdd }) => {
       title: titleRef.current.value || "",
       email: emailRef.current.value || "",
       message: messageRef.current.value || "",
-      file: "",
-      fileURL: "",
+      file: file.file || "",
+      fileURL: file.fileURL || "",
     };
     formRef.current.reset(); // 사용자가 입력해서 제출하고 나면 폼이 리셋되도록
+    setFile({ file: null, fileURL: null });
     onAdd(card);
   };
   return (
@@ -75,7 +84,7 @@ const AddForm = ({ onAdd }) => {
         placeholder="message"
       ></textarea>
       <section className={styles.btns}>
-        <ImgFile />
+        <FileInput name={file.file} onFileChange={onFileChange} />
         <Btn name="Add" onClick={onSubmit} />
       </section>
     </form>

@@ -1,6 +1,12 @@
 @value mainColor,makerBrown, makerGreen, makerLightGrey, makerLightGreen, makerWhite from '../../common/colors.css';
 
-.file {
+.container {
+  display: inline;
+}
+.input {
+  display: none;
+}
+.imgBtn {
   background: mainColor;
   color: makerLightGrey;
   border: none;
@@ -10,6 +16,10 @@
   padding: 0.5em;
   width: 50%;
 }
-.file:hover {
+.imgBtn:hover {
   opacity: 0.9;
+}
+.imgBtn.haveImg {
+  background: makerLightGreen;
+  color: makerBrown;
 }

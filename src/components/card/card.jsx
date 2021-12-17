@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./card.module.css";
 
-const DEFAULT_IMAGE = "/images/profile.jpeg";
+const DEFAULT_IMAGE = "/images/default_profile.png";
 const Card = ({ card }) => {
   const { name, company, theme, email, title, message, file, fileURL } = card;
   const url = fileURL || DEFAULT_IMAGE;

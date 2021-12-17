@@ -6,7 +6,7 @@ import CardMaker from "../editor/cardmaker";
 import Preview from "../preview/Preview";
 import styles from "./makeCard.module.css";
 
-const MakeCard = ({ authService }) => {
+const MakeCard = ({ FileInput, authService }) => {
   const [cards, setCards] = useState({
     1: {
       id: 1,
@@ -77,6 +77,7 @@ const MakeCard = ({ authService }) => {
       <Header onLogout={onLogout} />
       <div className={styles.container}>
         <CardMaker
+          FileInput={FileInput}
           cards={cards}
           addCard={addOrUpdateCard}
           updateCard={addOrUpdateCard}
