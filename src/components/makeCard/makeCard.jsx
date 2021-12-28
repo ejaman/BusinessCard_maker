@@ -1,47 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import Footer from "../footer/footer";
 import Header from "../header/header";
 import CardMaker from "../editor/cardmaker";
 import Preview from "../preview/Preview";
 import styles from "./makeCard.module.css";
 
-const MakeCard = ({ FileInput, authService }) => {
-  const [cards, setCards] = useState({
-    1: {
-      id: 1,
-      name: "kitty",
-      company: "samsung",
-      theme: "Dark",
-      email: "kitty@gmail.com",
-      title: "developer",
-      message: "coding👍",
-      file: "files",
-      fileURL: null,
-    },
-    2: {
-      id: 2,
-      name: "bunny",
-      company: "samsung",
-      theme: "Color",
-      email: "bunny@gmail.com",
-      title: "developer",
-      message: "coding👍👍",
-      file: "files",
-      fileURL: null,
-    },
-    3: {
-      id: 3,
-      name: "pony",
-      company: "samsung",
-      theme: "Light",
-      email: "pony@gmail.com",
-      title: "developer",
-      message: "coding👍👍👍",
-      file: "files",
-      fileURL: "files.png",
-    },
-  });
+const MakeCard = ({ FileInput, authService, cardRepo }) => {
+  const location = useLocation();
+  const locationState = location?.state;
+  const [cards, setCards] = useState({});
+  const [userId, setUserId] = useState(locationState && locationState.id);
 
   const navigate = useNavigate();
   const onLogout = () => {
@@ -49,8 +18,22 @@ const MakeCard = ({ FileInput, authService }) => {
   };
 
   useEffect(() => {
+    if (!userId) {
+      return;
+    }
+    const stopSync = cardRepo.syncCards(userId, (cards) => {
+      setCards(cards);
+    });
+    return () => stopSync();
+  }, [userId]);
+
+  // login
+  useEffect(() => {
     authService.onAuthChange((user) => {
-      if (!user) {
+      if (user) {
+        setUserId(user.uid);
+        console.log(userId);
+      } else {
         navigate("/");
       }
     });
@@ -63,6 +46,7 @@ const MakeCard = ({ FileInput, authService }) => {
       updated[card.id] = card;
       return updated;
     });
+    cardRepo.saveCard(userId, card);
   };
   const deleteCard = (card) => {
     console.log(card);

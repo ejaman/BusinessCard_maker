@@ -3,7 +3,7 @@ import styles from "./app.module.css";
 import Login from "./components/login/login";
 import MakeCard from "./components/makeCard/makeCard";
 
-function App({ FileInput, authService }) {
+function App({ FileInput, authService, cardRepo }) {
   return (
     <div className={styles.app}>
       <BrowserRouter>
@@ -13,7 +13,11 @@ function App({ FileInput, authService }) {
           <Route
             path="/card"
             element={
-              <MakeCard FileInput={FileInput} authService={authService} />
+              <MakeCard
+                FileInput={FileInput}
+                authService={authService}
+                cardRepo={cardRepo}
+              />
             }
           />
         </Routes>
