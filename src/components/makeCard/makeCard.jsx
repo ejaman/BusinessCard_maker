@@ -56,6 +56,7 @@ const MakeCard = ({ FileInput, authService }) => {
     });
   });
 
+  //
   const addOrUpdateCard = (card) => {
     setCards((cards) => {
       const updated = { ...cards };
@@ -79,6 +80,7 @@ const MakeCard = ({ FileInput, authService }) => {
         <CardMaker
           FileInput={FileInput}
           cards={cards}
+          //
           addCard={addOrUpdateCard}
           updateCard={addOrUpdateCard}
           deleteCard={deleteCard}

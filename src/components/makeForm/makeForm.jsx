@@ -10,7 +10,7 @@ const Makeform = ({ FileInput, card, updateCard, deleteCard }) => {
   };
 
   const onChange = (event) => {
-    console.log("change");
+    console.log(event.currentTarget.value);
     if (event.currentTarget == null) {
       return;
     }

@@ -16,6 +16,7 @@ const CardMaker = ({ FileInput, cards, addCard, updateCard, deleteCard }) => {
             deleteCard={deleteCard}
           />
         ))}
+
         <AddForm FileInput={FileInput} onAdd={addCard} />
       </ul>
     </section>
