@@ -9,10 +9,10 @@ import styles from "./makeCard.module.css";
 const MakeCard = ({ FileInput, authService, cardRepo }) => {
   const location = useLocation();
   const locationState = location?.state;
+  const navigate = useNavigate();
   const [cards, setCards] = useState({});
   const [userId, setUserId] = useState(locationState && locationState.id);
 
-  const navigate = useNavigate();
   const onLogout = () => {
     authService.logout();
   };
@@ -32,7 +32,6 @@ const MakeCard = ({ FileInput, authService, cardRepo }) => {
     authService.onAuthChange((user) => {
       if (user) {
         setUserId(user.uid);
-        console.log(userId);
       } else {
         navigate("/");
       }
@@ -55,6 +54,7 @@ const MakeCard = ({ FileInput, authService, cardRepo }) => {
       delete deleted[card.id];
       return deleted;
     });
+    cardRepo.deleteCard(userId, card);
   };
 
   return (

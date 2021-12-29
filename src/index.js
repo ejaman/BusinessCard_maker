@@ -9,9 +9,9 @@ import ImgFile from "./components/imgFile/imgFile";
 import CardRepo from "./service/card_repo";
 
 const authService = new AuthService();
+const cardRepo = new CardRepo();
 const imgUploader = new ImgUploader();
 const FileInput = (props) => <ImgFile {...props} imgUploader={imgUploader} />;
-const cardRepo = new CardRepo();
 
 ReactDOM.render(
   <React.StrictMode>
