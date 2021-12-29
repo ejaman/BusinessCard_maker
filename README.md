@@ -1,70 +1,107 @@
-# Getting Started with Create React App
+# Cardmaker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+리액트와 파이어베이스, 클라우디너리를 사용해 만든 비즈니스 카드 생성기  <br>
+(business card maker with react & firebase & cloudinary) <br> <br>
+reference: dreamcoding react basic
+<br> <br><br> <br>
 
-## Available Scripts
+## 1. 개발 스택/Tech Stack
+<img src="https://img.shields.io/badge/React Router-CA4245?style=flat&logo=React Router&logoColor=white"/>
+<img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat&logo=Firebase&logoColor=white"/>
+ <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white"/> 
+<img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=React&logoColor=white"/> 
+<img src="https://img.shields.io/badge/Yarn-2C8EBB?style=flat&logo=Yarn&logoColor=white"/> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=white"/> 
+& cloudinary
+<br><br><br>
 
-In the project directory, you can run:
 
-### `npm start`
+## 2. Demo
+🔗link:  https://jm-card-maker.netlify.app
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. login page
+- 파이어베이스를 사용해 구글과 깃헙으로 로그인 할 수 있게 만듦 : Social Login (with Google and Github) using Firebase <br>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<img width="1440" alt="스크린샷 2021-12-29 오후 4 08 05" src="https://user-images.githubusercontent.com/82802784/147636932-d544c750-fb1b-41c2-8ca7-8deacd0829f7.png">
+<br><br>
 
-### `npm test`
+- 로그인 후에는 로그인 페이지로 갈 수 없음 : Can't go to login page after login <br>
+```javascript  
+  const navigate = useNavigate();
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  const goToMaker = (userId) => {
+    navigate("/card", { state: { id: userId } });
+  };
 
-### `npm run build`
+  const onLogin = (event) => {
+    authService //
+      .login(event.currentTarget.textContent)
+      .then((data) => goToMaker(data.user.uid));
+  };
+```
+<br><br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 로그아웃 후에는 card로 갈 수 없음 : can't access to card after logout <br>
+``` javascript
+// login
+  useEffect(() => {
+    authService.onAuthChange((user) => {
+      if (user) {
+        setUserId(user.uid);
+      } else {
+        navigate("/");
+      }
+    });
+  }); 
+  ```
+<br> <br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. main page
+ - 명함을 추가하고 수정, 삭제할 수 있음 : add, edit and delete business cards
+<img width="1440" alt="스크린샷 2021-12-29 오후 4 06 12" src="https://user-images.githubusercontent.com/82802784/147636929-3c137877-3f78-410a-936f-383ce2f0ca58.png">
+<br> <br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 명함에 사진을 추가하고 수정할 수 있음 : add and edit photos on business cards ➡️ cloudinary☁️
+<img width="1327" alt="스크린샷 2021-12-29 오후 4 18 38" src="https://user-images.githubusercontent.com/82802784/147636995-114ef5f5-671f-493a-9981-ce0250719ac9.png">
+<br><br>
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+3. firebase
+각 유저에 따라 명함 정보를 저장 새로고침해도 사라지지 않음!
+: save business card info for each user
+```javascript
+ saveCard(userId, card) {
+    app.database().ref(`${userId}/cards/${card.id}`).set(card);
+  }
+```
+<br><br><br>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 3. deployment
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+생각보다 어렵고 오래 걸렸다 use Netlify
+1. .env의 API key는 gitignore로 build 파일에 포함되지 않음 ➡️ 로그인 에러(API key of .env is not included in build file - gitignore)<br>
+netlify environment setting에서 해결 
+<img width="860" alt="스크린샷 2021-12-29 오후 4 35 24" src="https://user-images.githubusercontent.com/82802784/147638217-2d4ea4a0-67f6-445d-8876-6539d2290f9e.png">
+<img width="818" alt="스크린샷 2021-12-29 오후 4 35 51" src="https://user-images.githubusercontent.com/82802784/147638226-349cba09-a143-46ae-b4b4-d3275f040cb2.png">
+<br><br>
 
-## Learn More
+2. "this domain (jm-card-maker.netlify.app) is not authorized to run this operation. add it to the oauth redirect domains list in the firebase console " 
+<br><br> 
+➡️ Authorized domains에 netlify에서 deploy한 링크를 추가(Add deployed links to Authorized domains)<br><br><br>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+문제해결🎉
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+<br><br><br><br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## 4. 개선 사항
+1. 먕함을 찾기 너무 어려움(hard to find business card)
+➡️ 검색 기능 또는 명함을 클릭하면 자동 스크롤되도록(Add search function or auto scroll function)
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+2. social login만 지원 (only supports social login)
+<br>➡️id & pw or id link로 로그인 가능하도록(add id,pw login)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
