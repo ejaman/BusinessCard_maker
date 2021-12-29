@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/BusinessCard_maker/static/css/main.8644bb6e.chunk.css",
+    "main.js": "/BusinessCard_maker/static/js/main.a5cb2d77.chunk.js",
+    "main.js.map": "/BusinessCard_maker/static/js/main.a5cb2d77.chunk.js.map",
+    "runtime-main.js": "/BusinessCard_maker/static/js/runtime-main.af3c7e3a.js",
+    "runtime-main.js.map": "/BusinessCard_maker/static/js/runtime-main.af3c7e3a.js.map",
+    "static/js/2.4fd5b772.chunk.js": "/BusinessCard_maker/static/js/2.4fd5b772.chunk.js",
+    "static/js/2.4fd5b772.chunk.js.map": "/BusinessCard_maker/static/js/2.4fd5b772.chunk.js.map",
+    "static/js/3.2aee6a23.chunk.js": "/BusinessCard_maker/static/js/3.2aee6a23.chunk.js",
+    "static/js/3.2aee6a23.chunk.js.map": "/BusinessCard_maker/static/js/3.2aee6a23.chunk.js.map",
+    "index.html": "/BusinessCard_maker/index.html",
+    "static/css/main.8644bb6e.chunk.css.map": "/BusinessCard_maker/static/css/main.8644bb6e.chunk.css.map",
+    "static/js/2.4fd5b772.chunk.js.LICENSE.txt": "/BusinessCard_maker/static/js/2.4fd5b772.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.af3c7e3a.js",
+    "static/js/2.4fd5b772.chunk.js",
+    "static/css/main.8644bb6e.chunk.css",
+    "static/js/main.a5cb2d77.chunk.js"
+  ]
+}
